@@ -23,6 +23,7 @@ object HomePage extends BasePage {
 
   def pageUrlNoVendor: String = "http://localhost:20110/online-agent-authorisations-frontend"
 
-  override def pageTitle: String = "online-agent-authorisations-frontend - online-agent-authorisations-frontend - GOV.UK"
+  override def pageTitle: String =
+    "online-agent-authorisations-frontend - online-agent-authorisations-frontend - GOV.UK"
 
 }

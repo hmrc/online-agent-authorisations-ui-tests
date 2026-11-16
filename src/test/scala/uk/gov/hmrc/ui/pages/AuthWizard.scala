@@ -70,7 +70,7 @@ object AuthWizard extends BasePage {
     driver.findElement(enrolmentValue2).sendKeys("CT0001")
     this
   }
-  
+
   def login(@unused loginType: LoginTypes, @unused userType: UserTypes): Unit = {
     AuthWizard.navigateToPage(url)
     sendKeys(redirectUrl, buildRedirectUrl(HASDIRECT, Organisation))
