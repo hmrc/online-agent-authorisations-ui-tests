@@ -42,6 +42,12 @@ object AuthWizard extends BasePage {
   val enrolmentKey2: By   = By.id(s"enrolment[1].name") // Enrolment Key
   val enrolmentId2: By    = By.name(s"enrolment[1].taxIdentifier[0].name")
   val enrolmentValue2: By = By.name(s"enrolment[1].taxIdentifier[0].value")
+  val enrolmentKey3: By   = By.id(s"enrolment[2].name") // Enrolment Key
+  val enrolmentId3: By    = By.name(s"enrolment[2].taxIdentifier[0].name")
+  val enrolmentValue3: By = By.name(s"enrolment[2].taxIdentifier[0].value")
+  val enrolmentKey4: By   = By.id(s"enrolment[3].name") // Enrolment Key
+  val enrolmentId4: By    = By.name(s"enrolment[3].taxIdentifier[0].name")
+  val enrolmentValue4: By = By.name(s"enrolment[3].taxIdentifier[0].value")
   val oAuthIdToken: By    = By.id("idToken")
   val addPreset: By       = By.id("add-ident-btn-0")
   val credId: By          = By.id("authorityId")
@@ -55,10 +61,10 @@ object AuthWizard extends BasePage {
   ): String =
     if (
       Env.baseUrl.equals(
-        s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:20110/online-agent-authorisations-frontend"
+        s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http://localhost:20110/online-agent-authorisations-frontend/agent-authorisation"
       )
-    ) s"http://localhost:20110/online-agent-authorisations-frontend"
-    else s"/online-agent-authorisations-frontend"
+    ) s"http://localhost:20110/online-agent-authorisations-frontend/agent-authorisation"
+    else s"/online-agent-authorisations-frontend/agent-authorisation"
 
   def fillInputs(): this.type = {
     driver.findElement(affinityGroup).sendKeys("Agent")
@@ -68,6 +74,12 @@ object AuthWizard extends BasePage {
     driver.findElement(enrolmentKey2).sendKeys("IR-CT-AGENT")
     driver.findElement(enrolmentId2).sendKeys("IRAgentReference")
     driver.findElement(enrolmentValue2).sendKeys("CT0001")
+    driver.findElement(enrolmentKey3).sendKeys("IR-PAYE-AGENT")
+    driver.findElement(enrolmentId3).sendKeys("IRAgentReference")
+    driver.findElement(enrolmentValue3).sendKeys("PAYE0001")
+    driver.findElement(enrolmentKey4).sendKeys("HMCE-VAT-AGNT")
+    driver.findElement(enrolmentId4).sendKeys("IRAgentReference")
+    driver.findElement(enrolmentValue4).sendKeys("VAT0001")
     this
   }
 
